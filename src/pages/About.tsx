@@ -6,23 +6,23 @@ const About = () => {
   const values = [
     {
       icon: <Target className="h-8 w-8 text-blue-700" />,
-      title: "Reliability",
-      description: "We deliver on our promises with consistent, dependable service."
+      title: "Technology - Human centred",
+      description: "We follow a \"Build. Break. Better.\" Mindset, always ready to rethink. If it helps the client, we're not afraid to redo or reinvent. Our tools are designed to make your work easier, not harder. Because great logistics tech should work for people, not the other way around."
     },
     {
       icon: <Heart className="h-8 w-8 text-blue-700" />,
-      title: "Customer Focus",
-      description: "Your success is our success. We put customers at the heart of everything we do."
+      title: "Customer Centric",
+      description: "We serve not just our customers, but our customers' customers. Your priorities shape our processes, not the other way around. We stay accountable, proactive, and easy to reach. Because your trust and theirs, rides with us."
     },
     {
       icon: <Users className="h-8 w-8 text-blue-700" />,
-      title: "Teamwork",
-      description: "Our experienced team works together to deliver exceptional results."
+      title: "Our People, Our Priority",
+      description: "People aren't just part of our business; they are the business. From drivers and partners to clients and team members, every relationship matters. We lead with respect, act with fairness, and communicate with transparency. Because strong logistics is built on stronger human connections."
     },
     {
       icon: <Eye className="h-8 w-8 text-blue-700" />,
       title: "Transparency",
-      description: "Clear communication and honest pricing in all our business dealings."
+      description: "What we commit is what we deliver, no surprises, no hidden terms. From pricing to timelines, we keep everything clear and upfront. We communicate early, often, and honestly, even when it's tough. Because long-term trust starts with complete clarity."
     }
   ];
 
@@ -43,21 +43,12 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">About Us</h2>
               <p className="text-lg text-gray-600 mb-4">
-                Arundev Logistics was founded with a simple mission: to provide reliable, 
-                efficient, and cost-effective transportation solutions for businesses across India. 
-                What started as a small family business has grown into a trusted logistics partner 
-                serving diverse industries.
-              </p>
-              <p className="text-lg text-gray-600 mb-4">
-                Our commitment to excellence and customer satisfaction has been the driving force 
-                behind our growth. We understand that every shipment is important to our clients, 
-                and we treat each delivery with the care and attention it deserves.
+                At Arundev Logistics, we specialize in reliable, tailored logistics solutions and have established ourselves since 2019 as the go-to logistics partner for businesses of all sizes and individuals across Chennai.
               </p>
               <p className="text-lg text-gray-600">
-                Today, we continue to expand our services while maintaining the personal touch 
-                and reliability that our customers have come to expect from Arundev Logistics.
+                Driven by a client-first mindset, we combine innovation with simplicity to deliver logistics solutions that just work—no jargon, no confusion, and absolutely no BS. Your logistics, made smarter, faster, and more dependable.
               </p>
             </div>
             <div className="flex justify-center">
@@ -79,10 +70,7 @@ const About = () => {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
                 <p className="text-gray-600 text-lg">
-                  To provide exceptional transportation and logistics services that exceed 
-                  customer expectations while maintaining the highest standards of safety, 
-                  reliability, and professionalism. We strive to be the preferred logistics 
-                  partner for businesses seeking efficient and cost-effective solutions.
+                  To revolutionize logistics by offering seamless, reliable, and cost effective transportation solutions that empower businesses and individuals alike.
                 </p>
               </CardContent>
             </Card>
@@ -90,10 +78,7 @@ const About = () => {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
                 <p className="text-gray-600 text-lg">
-                  To become the leading logistics company in India, recognized for our 
-                  innovation, reliability, and commitment to sustainable transportation 
-                  solutions. We envision a future where our services enable businesses 
-                  to thrive through seamless supply chain management.
+                  To be a trusted leader in the logistics industry, known for innovation, efficiency, and a customer-first approach.
                 </p>
               </CardContent>
             </Card>
@@ -105,7 +90,7 @@ const About = () => {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Values</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Core Principles</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               The principles that guide everything we do at Arundev Logistics
             </p>

@@ -24,12 +24,6 @@ export const Footer = () => {
               excellence with every shipment, ensuring your goods reach their destination 
               safely and on time.
             </p>
-            <div className="flex space-x-4">
-              <div className="flex items-center text-gray-300">
-                <Phone className="h-4 w-4 mr-2" />
-                <span>+91 9876543210</span>
-              </div>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -63,13 +57,13 @@ export const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <div className="space-y-3">
-              <div className="flex items-start text-gray-300">
-                <MapPin className="h-4 w-4 mr-2 mt-1 flex-shrink-0" />
-                <span>123 Logistics Street, Transport City, State 560001</span>
+              <div className="flex items-center text-gray-300">
+                <Phone className="h-4 w-4 mr-2" />
+                <span>+91 7904852870</span>
               </div>
               <div className="flex items-center text-gray-300">
                 <Mail className="h-4 w-4 mr-2" />
-                <span>info@arundevlogistics.com</span>
+                <span>sales@arundevlogistics.com</span>
               </div>
             </div>
           </div>
