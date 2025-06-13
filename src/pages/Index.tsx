@@ -41,7 +41,7 @@ const Index = () => {
                 className="h-80 w-auto object-contain"
               />
             </div>
-            <div>
+            <div className="pr-8">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 Your Trusted <span className="text-orange-400">Logistics</span> Partner
               </h1>

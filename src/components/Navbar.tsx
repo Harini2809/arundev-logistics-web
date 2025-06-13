@@ -47,7 +47,7 @@ export const Navbar = () => {
               <Link
                 key={path}
                 to={path}
-                className={`px-2 py-1 rounded-md text-xs font-medium transition-colors ${
+                className={`px-2 py-1 rounded-md text-sm font-medium transition-colors ${
                   isActive(path)
                     ? "text-blue-700 bg-blue-50"
                     : "text-gray-700 hover:text-blue-700 hover:bg-gray-50"

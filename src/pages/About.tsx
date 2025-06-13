@@ -55,7 +55,7 @@ const About = () => {
               <img 
                 src="/lovable-uploads/28510f6a-4699-476c-a538-40a7a953b084.png" 
                 alt="Arundev Logistics Warehouse" 
-                className="h-80 w-auto object-contain rounded-lg"
+                className="h-96 w-auto object-contain rounded-lg"
               />
             </div>
           </div>
