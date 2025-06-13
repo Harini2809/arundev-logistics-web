@@ -16,6 +16,7 @@ export const Navbar = () => {
     { path: "/products", label: "Services" },
     { path: "/contact", label: "Contact" },
     { path: "/enquiry", label: "Get Quote" },
+    { path: "/track", label: "Track Package" },
   ];
 
   return (
@@ -29,9 +30,14 @@ export const Navbar = () => {
               alt="Arundev Logistics Logo" 
               className="h-12 w-auto"
             />
-            <span className="text-xl font-bold text-gray-800">
-              Arundev <span className="text-orange-500">Logistics</span>
-            </span>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold text-gray-800">
+                Arundev <span className="text-orange-500">Logistics</span>
+              </span>
+              <span className="text-xs text-gray-600 italic">
+                Where logistics meets Innovation-Made simple for You
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

@@ -2,7 +2,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Warehouse, Users, Clock, Shield } from "lucide-react";
+import { Warehouse, Users, Clock, DollarSign, Zap } from "lucide-react";
 
 const Products = () => {
   const services = [
@@ -32,21 +32,21 @@ const Products = () => {
     }
   ];
 
-  const specializations = [
+  const promises = [
     {
       icon: <Clock className="h-8 w-8 text-orange-500" />,
-      title: "Time-Critical Shipments",
-      description: "Specialized handling for urgent and time-sensitive deliveries"
+      title: "Time definite",
+      description: "We commit to timelines isn't just about delivery, it's in everything we do. Our Clients, Partners and Vendors count on us to move with urgency, clarity, and reliability. We build time discipline into our services, commitments, and communication. Because every minute matters and we treat it that way."
     },
     {
-      icon: <Shield className="h-8 w-8 text-orange-500" />,
-      title: "Fragile & Valuable Goods",
-      description: "Extra care and security for high-value and delicate items"
+      icon: <Zap className="h-8 w-8 text-orange-500" />,
+      title: "Flexibility",
+      description: "No two customers are the same and we don't treat them that way. We don't expect you to fit into our system, we adapt to yours. We understand every need is unique, and so is our approach. Our solutions are built to flex with your changing needs, not resist them."
     },
     {
-      icon: <Warehouse className="h-8 w-8 text-orange-500" />,
-      title: "Bulk Transportation",
-      description: "Efficient solutions for large volume shipments"
+      icon: <DollarSign className="h-8 w-8 text-orange-500" />,
+      title: "No Surprise pricing",
+      description: "No hidden & Confusing quotes, No Surprise Charges, No fine Print. We believe in clear, consistent pricing that builds trust. Our rate cards are simple, because logistics should be easy to understand, starting with the bill."
     }
   ];
 
@@ -104,55 +104,31 @@ const Products = () => {
         </div>
       </section>
 
-      {/* Specializations */}
+      {/* Our Promises */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Specializations</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Promises</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Specialized services for unique transportation requirements
+              The commitments that guide everything we do at Arundev Logistics
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {specializations.map((spec, index) => (
+            {promises.map((promise, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
                   <div className="flex justify-center mb-4">
-                    {spec.icon}
+                    {promise.icon}
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {spec.title}
+                    {promise.title}
                   </h3>
                   <p className="text-gray-600">
-                    {spec.description}
+                    {promise.description}
                   </p>
                 </CardContent>
               </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Industries Served */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Industries We Serve</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Trusted by businesses across various sectors
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
-            {[
-              "Manufacturing", "Retail", "E-commerce", "Pharmaceuticals", 
-              "Automotive", "Textiles", "Food & Beverage", "Electronics",
-              "Construction", "Agriculture", "Chemicals", "FMCG"
-            ].map((industry, index) => (
-              <div key={index} className="bg-gray-100 rounded-lg p-4 hover:bg-blue-50 transition-colors">
-                <span className="text-sm font-medium text-gray-700">{industry}</span>
-              </div>
             ))}
           </div>
         </div>

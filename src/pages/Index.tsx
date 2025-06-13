@@ -51,6 +51,11 @@ const Index = () => {
                 <Button asChild variant="outline" size="lg" className="border-white text-white bg-white/10 hover:bg-white hover:text-blue-700">
                   <Link to="/about">Learn More</Link>
                 </Button>
+                <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-700 text-white">
+                  <Link to="/track">
+                    Track Package <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
               </div>
             </div>
             <div className="flex justify-center lg:justify-end">

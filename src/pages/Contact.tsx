@@ -1,69 +1,23 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Phone, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
-  const contactInfo = [
-    {
-      icon: <MapPin className="h-6 w-6 text-blue-700" />,
-      title: "Address",
-      details: [
-        "123 Logistics Street",
-        "Transport City, State 560001",
-        "India"
-      ]
-    },
-    {
-      icon: <Phone className="h-6 w-6 text-blue-700" />,
-      title: "Phone",
-      details: [
-        "+91 9876543210",
-        "+91 9876543211",
-        "Toll Free: 1800-123-4567"
-      ]
-    },
-    {
-      icon: <Mail className="h-6 w-6 text-blue-700" />,
-      title: "Email",
-      details: [
-        "info@arundevlogistics.com",
-        "sales@arundevlogistics.com",
-        "support@arundevlogistics.com"
-      ]
-    },
-    {
-      icon: <Clock className="h-6 w-6 text-blue-700" />,
-      title: "Business Hours",
-      details: [
-        "Monday - Friday: 9:00 AM - 6:00 PM",
-        "Saturday: 9:00 AM - 2:00 PM",
-        "Sunday: Closed"
-      ]
-    }
-  ];
+  const handleVendorSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Vendor form submitted");
+  };
 
-  const offices = [
-    {
-      city: "Mumbai",
-      address: "456 Commerce Hub, Mumbai 400001",
-      phone: "+91 9876543212"
-    },
-    {
-      city: "Delhi",
-      address: "789 Capital Center, Delhi 110001",
-      phone: "+91 9876543213"
-    },
-    {
-      city: "Bangalore",
-      address: "321 Tech Park, Bangalore 560001",
-      phone: "+91 9876543214"
-    },
-    {
-      city: "Chennai",
-      address: "654 Port Road, Chennai 600001",
-      phone: "+91 9876543215"
-    }
-  ];
+  const handleCareerSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Career form submitted");
+  };
 
   return (
     <div className="min-h-screen py-12">
@@ -87,69 +41,121 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {contactInfo.map((info, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex justify-center mb-4">
-                    {info.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                    {info.title}
-                  </h3>
-                  <div className="space-y-1">
-                    {info.details.map((detail, detailIndex) => (
-                      <p key={detailIndex} className="text-gray-600 text-sm">
-                        {detail}
-                      </p>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="flex justify-center mb-4">
+                  <Phone className="h-6 w-6 text-blue-700" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  Phone
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  +91 7904852870
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="flex justify-center mb-4">
+                  <Mail className="h-6 w-6 text-blue-700" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  Email
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  sales@arundevlogistics.com
+                </p>
+              </CardContent>
+            </Card>
           </div>
 
-          {/* Map Placeholder */}
-          <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center mb-16">
-            <div className="text-center">
-              <MapPin className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-              <p className="text-gray-500">Interactive Map Coming Soon</p>
-              <p className="text-sm text-gray-400">123 Logistics Street, Transport City</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Branch Offices */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Branch Offices</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We have offices across major cities to serve you better
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {offices.map((office, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                    {office.city}
-                  </h3>
+          {/* Action Buttons */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Become our Vendor Dialog */}
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className="bg-blue-700 hover:bg-blue-800 text-white">
+                  Become our Vendor
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Become our Vendor</DialogTitle>
+                </DialogHeader>
+                <form onSubmit={handleVendorSubmit} className="space-y-4">
                   <div className="space-y-2">
-                    <div className="flex items-start">
-                      <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-1 flex-shrink-0" />
-                      <p className="text-gray-600 text-sm">{office.address}</p>
-                    </div>
-                    <div className="flex items-center">
-                      <Phone className="h-4 w-4 text-gray-400 mr-2" />
-                      <p className="text-gray-600 text-sm">{office.phone}</p>
-                    </div>
+                    <Label htmlFor="vendorName">Company Name *</Label>
+                    <Input id="vendorName" placeholder="Enter company name" required />
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                  <div className="space-y-2">
+                    <Label htmlFor="vendorContact">Contact Person *</Label>
+                    <Input id="vendorContact" placeholder="Enter contact person name" required />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="vendorPhone">Phone Number *</Label>
+                    <Input id="vendorPhone" type="tel" placeholder="Enter phone number" required />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="vendorEmail">Email Address *</Label>
+                    <Input id="vendorEmail" type="email" placeholder="Enter email address" required />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="vendorServices">Services Offered</Label>
+                    <Textarea id="vendorServices" placeholder="Describe your services" />
+                  </div>
+                  <Button type="submit" className="w-full">Submit Application</Button>
+                </form>
+              </DialogContent>
+            </Dialog>
+
+            {/* Get Custom Quote Button */}
+            <Button asChild className="bg-orange-500 hover:bg-orange-600 text-white">
+              <Link to="/enquiry">Get Custom Quote</Link>
+            </Button>
+
+            {/* Join Us Dialog */}
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className="bg-green-600 hover:bg-green-700 text-white">
+                  Join Us
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Join Our Team</DialogTitle>
+                </DialogHeader>
+                <form onSubmit={handleCareerSubmit} className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="careerName">Full Name *</Label>
+                    <Input id="careerName" placeholder="Enter your full name" required />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="careerEmail">Email Address *</Label>
+                    <Input id="careerEmail" type="email" placeholder="Enter email address" required />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="careerPhone">Phone Number *</Label>
+                    <Input id="careerPhone" type="tel" placeholder="Enter phone number" required />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="careerPosition">Position of Interest</Label>
+                    <Input id="careerPosition" placeholder="e.g., Driver, Operations, Sales" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="careerExperience">Experience</Label>
+                    <Textarea id="careerExperience" placeholder="Tell us about your relevant experience" />
+                  </div>
+                  <Button type="submit" className="w-full">Submit Application</Button>
+                </form>
+              </DialogContent>
+            </Dialog>
+
+            {/* Track Package Button */}
+            <Button asChild className="bg-purple-600 hover:bg-purple-700 text-white">
+              <Link to="/track">Track Package</Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -163,12 +169,9 @@ const Contact = () => {
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Fill out our enquiry form and get a personalized quote for your transportation needs.
           </p>
-          <a
-            href="/enquiry"
-            className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-white hover:bg-gray-50 transition-colors"
-          >
-            Submit Enquiry
-          </a>
+          <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
+            <Link to="/enquiry">Submit Enquiry</Link>
+          </Button>
         </div>
       </section>
     </div>
