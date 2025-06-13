@@ -31,25 +31,34 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-20">
+      <section className="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16 mt-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Your Trusted <span className="text-orange-400">Logistics</span> Partner
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-blue-100">
-              Delivering excellence in transportation and logistics solutions across India. 
-              Safe, reliable, and on-time delivery guaranteed.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
-                <Link to="/enquiry">
-                  Get Quote <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-700">
-                <Link to="/about">Learn More</Link>
-              </Button>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                Your Trusted <span className="text-orange-400">Logistics</span> Partner
+              </h1>
+              <p className="text-xl mb-8 text-blue-100">
+                Delivering excellence in transportation and logistics solutions across India. 
+                Safe, reliable, and on-time delivery guaranteed.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
+                  <Link to="/enquiry">
+                    Get Quote <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="border-white text-white bg-white/10 hover:bg-white hover:text-blue-700">
+                  <Link to="/about">Learn More</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="flex justify-center lg:justify-end">
+              <img 
+                src="/lovable-uploads/7bb6529b-da9c-4ad2-91d8-7fba9d87ad83.png" 
+                alt="Arundev Logistics" 
+                className="h-64 w-auto object-contain"
+              />
             </div>
           </div>
         </div>

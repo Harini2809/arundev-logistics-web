@@ -60,25 +60,12 @@ const About = () => {
                 and reliability that our customers have come to expect from Arundev Logistics.
               </p>
             </div>
-            <div className="bg-gray-100 rounded-lg p-8">
-              <div className="grid grid-cols-2 gap-6 text-center">
-                <div>
-                  <div className="text-3xl font-bold text-blue-700 mb-2">500+</div>
-                  <div className="text-gray-600">Happy Clients</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-blue-700 mb-2">10,000+</div>
-                  <div className="text-gray-600">Deliveries Made</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-blue-700 mb-2">50+</div>
-                  <div className="text-gray-600">Fleet Vehicles</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-blue-700 mb-2">99.5%</div>
-                  <div className="text-gray-600">On-Time Delivery</div>
-                </div>
-              </div>
+            <div className="flex justify-center">
+              <img 
+                src="/lovable-uploads/7bb6529b-da9c-4ad2-91d8-7fba9d87ad83.png" 
+                alt="Arundev Logistics" 
+                className="h-80 w-auto object-contain"
+              />
             </div>
           </div>
         </div>
