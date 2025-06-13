@@ -31,9 +31,16 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16 mt-4">
+      <section className="bg-blue-700 text-white py-16 mt-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="flex justify-center lg:justify-start">
+              <img 
+                src="/lovable-uploads/941a8acf-d27d-4157-84c0-8b840dc0455c.png" 
+                alt="Thiruvalluvar" 
+                className="h-80 w-auto object-contain"
+              />
+            </div>
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 Your Trusted <span className="text-orange-400">Logistics</span> Partner
@@ -51,19 +58,12 @@ const Index = () => {
                 <Button asChild variant="outline" size="lg" className="border-white text-white bg-white/10 hover:bg-white hover:text-blue-700">
                   <Link to="/about">Learn More</Link>
                 </Button>
-                <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-700 text-white">
+                <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
                   <Link to="/track">
                     Track Package <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
-            </div>
-            <div className="flex justify-center lg:justify-end">
-              <img 
-                src="/lovable-uploads/7bb6529b-da9c-4ad2-91d8-7fba9d87ad83.png" 
-                alt="Arundev Logistics" 
-                className="h-64 w-auto object-contain"
-              />
             </div>
           </div>
         </div>

@@ -34,19 +34,20 @@ export const Navbar = () => {
               <span className="text-xl font-bold text-gray-800">
                 Arundev <span className="text-orange-500">Logistics</span>
               </span>
-              <span className="text-xs text-gray-600 italic">
-                Where logistics meets Innovation-Made simple for You
-              </span>
+              <div className="text-xs text-gray-600 italic">
+                <div>Where logistics meets Innovation-</div>
+                <div>Made simple for You</div>
+              </div>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-6">
             {navLinks.map(({ path, label }) => (
               <Link
                 key={path}
                 to={path}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`px-2 py-1 rounded-md text-xs font-medium transition-colors ${
                   isActive(path)
                     ? "text-blue-700 bg-blue-50"
                     : "text-gray-700 hover:text-blue-700 hover:bg-gray-50"

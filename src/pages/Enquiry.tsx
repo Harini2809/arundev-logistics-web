@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin, Truck } from "lucide-react";
+import { Mail, Phone, Truck } from "lucide-react";
 
 const Enquiry = () => {
   const { toast } = useToast();
@@ -87,8 +87,7 @@ const Enquiry = () => {
                   <Phone className="h-5 w-5 text-blue-700 mt-1" />
                   <div>
                     <h4 className="font-medium text-gray-900">Phone</h4>
-                    <p className="text-gray-600">+91 9876543210</p>
-                    <p className="text-gray-600">+91 9876543211</p>
+                    <p className="text-gray-600">+91 7904852870</p>
                   </div>
                 </div>
                 
@@ -96,17 +95,7 @@ const Enquiry = () => {
                   <Mail className="h-5 w-5 text-blue-700 mt-1" />
                   <div>
                     <h4 className="font-medium text-gray-900">Email</h4>
-                    <p className="text-gray-600">info@arundevlogistics.com</p>
                     <p className="text-gray-600">sales@arundevlogistics.com</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3">
-                  <MapPin className="h-5 w-5 text-blue-700 mt-1" />
-                  <div>
-                    <h4 className="font-medium text-gray-900">Address</h4>
-                    <p className="text-gray-600">123 Logistics Street</p>
-                    <p className="text-gray-600">Transport City, State 560001</p>
                   </div>
                 </div>
 

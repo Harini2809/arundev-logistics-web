@@ -118,7 +118,7 @@ const Contact = () => {
             {/* Join Us Dialog */}
             <Dialog>
               <DialogTrigger asChild>
-                <Button className="bg-green-600 hover:bg-green-700 text-white">
+                <Button className="bg-blue-700 hover:bg-blue-800 text-white">
                   Join Us
                 </Button>
               </DialogTrigger>
@@ -153,7 +153,7 @@ const Contact = () => {
             </Dialog>
 
             {/* Track Package Button */}
-            <Button asChild className="bg-purple-600 hover:bg-purple-700 text-white">
+            <Button asChild className="bg-orange-500 hover:bg-orange-600 text-white">
               <Link to="/track">Track Package</Link>
             </Button>
           </div>

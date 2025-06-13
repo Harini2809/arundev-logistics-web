@@ -53,9 +53,9 @@ const About = () => {
             </div>
             <div className="flex justify-center">
               <img 
-                src="/lovable-uploads/7bb6529b-da9c-4ad2-91d8-7fba9d87ad83.png" 
-                alt="Arundev Logistics" 
-                className="h-80 w-auto object-contain"
+                src="/lovable-uploads/28510f6a-4699-476c-a538-40a7a953b084.png" 
+                alt="Arundev Logistics Warehouse" 
+                className="h-80 w-auto object-contain rounded-lg"
               />
             </div>
           </div>
@@ -96,19 +96,23 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex justify-center mb-4">
-                    {value.icon}
+              <Card key={index} className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-8">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 mt-1">
+                      {value.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                        {value.title}
+                      </h3>
+                      <p className="text-gray-600">
+                        {value.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-600">
-                    {value.description}
-                  </p>
                 </CardContent>
               </Card>
             ))}
