@@ -27,12 +27,12 @@ const Index = () => {
     <div className="min-h-screen">
       {/* Hero Section with Background Image */}
       <section 
-        className="relative bg-cover bg-center bg-no-repeat py-12 min-h-[450px] flex items-end"
+        className="relative bg-cover bg-center bg-no-repeat min-h-[400px] flex items-end"
         style={{
           backgroundImage: `url('/lovable-uploads/59dd22ff-cc5b-47bf-982d-be22f5550805.png')`
         }}
       >
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-end pb-8 pr-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-end pb-4 pr-8">
           <div className="flex flex-col sm:flex-row gap-4">
             <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
               <Link to="/enquiry">
