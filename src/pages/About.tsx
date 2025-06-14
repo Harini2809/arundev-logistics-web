@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -34,7 +35,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About Arundev Logistics</h1>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Building trust through reliable transportation solutions since our inception
+            Where logistics meets Innovation-Made simple for You
           </p>
         </div>
       </section>
@@ -46,17 +47,17 @@ const About = () => {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">About Us</h2>
               <p className="text-lg text-gray-600 mb-4">
-                At Arundev Logistics, we specialize in reliable, tailored logistics solutions and have established ourselves since 2019 as the go-to logistics partner for businesses of all sizes and individuals across Chennai.
+                At <strong>Arundev Logistics</strong>, we specialize in reliable, tailored logistics solutions and have established ourselves since 2019 as the <strong>go-to logistics partner</strong> for businesses of all sizes and individuals across Chennai.
               </p>
               <p className="text-lg text-gray-600">
-                Driven by a client-first mindset, we combine innovation with simplicity to deliver logistics solutions that just work—no jargon, no confusion, and absolutely no BS. Your logistics, made smarter, faster, and more dependable.
+                Driven by a <strong>client-first</strong> mindset, we combine innovation with simplicity to deliver logistics solutions that just work—<strong>no jargon, no confusion, and absolutely no BS</strong>. Your logistics, made smarter, faster, and more dependable.
               </p>
             </div>
             <div className="flex justify-center">
               <img 
                 src="/lovable-uploads/28510f6a-4699-476c-a538-40a7a953b084.png" 
                 alt="Arundev Logistics Warehouse" 
-                className="h-[450px] w-auto object-contain rounded-lg"
+                className="h-[500px] w-auto object-contain rounded-lg"
               />
             </div>
           </div>

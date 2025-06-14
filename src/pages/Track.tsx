@@ -15,7 +15,6 @@ const Track = () => {
     customerName: "",
     phoneNumber: "",
     email: "",
-    orderDate: "",
     additionalInfo: ""
   });
 
@@ -39,7 +38,6 @@ const Track = () => {
         customerName: "",
         phoneNumber: "",
         email: "",
-        orderDate: "",
         additionalInfo: ""
       });
     }
@@ -55,7 +53,7 @@ const Track = () => {
           <Package className="h-16 w-16 mx-auto mb-4 text-orange-400" />
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Track Your Package</h1>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Enter your tracking details below to get real-time updates on your shipment
+            Enter your tracking details below to get real-time updates on your shipment <span className="text-sm font-light">as our automated integration process in underway</span>
           </p>
         </div>
       </section>
@@ -124,17 +122,6 @@ const Track = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="orderDate">Order Date</Label>
-                  <Input
-                    id="orderDate"
-                    name="orderDate"
-                    type="date"
-                    value={formData.orderDate}
-                    onChange={(e) => handleInputChange("orderDate", e.target.value)}
-                  />
-                </div>
-
-                <div className="space-y-2">
                   <Label htmlFor="additionalInfo">Additional Information</Label>
                   <Textarea
                     id="additionalInfo"
@@ -163,7 +150,7 @@ const Track = () => {
             <CardContent className="p-6">
               <h3 className="text-lg font-semibold mb-4">Need Help?</h3>
               <p className="text-gray-600 mb-4">
-                If you're having trouble tracking your package or need assistance, please contact our customer service team.
+                If you're having trouble tracking your package or need assistance, please contact our 24/7 customer service team.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="flex items-center text-gray-600">

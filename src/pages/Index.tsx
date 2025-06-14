@@ -2,29 +2,24 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { Truck, Shield, Clock, Award, ArrowRight } from "lucide-react";
+import { Clock, Zap, ArrowRight, IndianRupee } from "lucide-react";
 
 const Index = () => {
   const features = [
     {
-      icon: <Truck className="h-12 w-12 text-blue-700" />,
-      title: "Reliable Transport",
-      description: "Professional transportation services with modern fleet and experienced drivers."
+      icon: <Clock className="h-12 w-12 text-orange-500" />,
+      title: "Time definite",
+      description: "We commit to timelines isn't just about delivery, it's in everything we do. Our Clients, Partners and Vendors count on us to move with urgency, clarity, and reliability. We build time discipline into our services, commitments, and communication. Because every minute matters and we treat it that way."
     },
     {
-      icon: <Shield className="h-12 w-12 text-blue-700" />,
-      title: "Safe & Secure",
-      description: "Your goods are protected with comprehensive insurance and secure handling."
+      icon: <Zap className="h-12 w-12 text-orange-500" />,
+      title: "Flexibility",
+      description: "No two customers are the same and we don't treat them that way. We don't expect you to fit into our system, we adapt to yours. We understand every need is unique, and so is our approach. Our solutions are built to flex with your changing needs, not resist them."
     },
     {
-      icon: <Clock className="h-12 w-12 text-blue-700" />,
-      title: "On-Time Delivery",
-      description: "We ensure punctual delivery with real-time tracking and updates."
-    },
-    {
-      icon: <Award className="h-12 w-12 text-blue-700" />,
-      title: "Quality Service",
-      description: "Award-winning customer service with 24/7 support for all your needs."
+      icon: <IndianRupee className="h-12 w-12 text-orange-500" />,
+      title: "No Surprise pricing",
+      description: "No hidden & Confusing quotes, No Surprise Charges, No fine Print. We believe in clear, consistent pricing that builds trust. Our rate cards are simple, because logistics should be easy to understand, starting with the bill."
     }
   ];
 
@@ -32,13 +27,12 @@ const Index = () => {
     <div className="min-h-screen">
       {/* Hero Section with Background Image */}
       <section 
-        className="relative bg-cover bg-center bg-no-repeat py-16 mt-4 min-h-[500px] flex items-center"
+        className="relative bg-cover bg-center bg-no-repeat py-12 min-h-[450px] flex items-end"
         style={{
           backgroundImage: `url('/lovable-uploads/59dd22ff-cc5b-47bf-982d-be22f5550805.png')`
         }}
       >
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-end pb-8 pr-8">
           <div className="flex flex-col sm:flex-row gap-4">
             <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
               <Link to="/enquiry">
@@ -65,11 +59,11 @@ const Index = () => {
               Why Choose Arundev Logistics?
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We provide comprehensive logistics solutions with a commitment to excellence and customer satisfaction.
+              The commitments that guide everything we do at Arundev Logistics
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
@@ -91,18 +85,35 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-blue-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Ship with Us?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Contact us today for a custom quote and experience the difference of working with professionals.
-          </p>
-          <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
-            <Link to="/contact">
-              Contact Us Today <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                About Us
+              </h2>
+              <p className="text-xl text-blue-100 mb-6">
+                At <strong>Arundev Logistics</strong>, we specialize in reliable, tailored logistics solutions and have established ourselves since 2019 as the <strong>go-to logistics partner</strong> for businesses of all sizes and individuals across Chennai.
+              </p>
+              <Button asChild size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white hover:text-blue-700">
+                <Link to="/about">
+                  Read More <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+            <div className="text-center lg:text-right">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Ready to transform your logistics experience?
+              </h2>
+              <p className="text-xl text-blue-100 mb-8">
+                Experience seamless logistics solutions tailored just for you
+              </p>
+              <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
+                <Link to="/contact">
+                  Contact Us Today <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
     </div>

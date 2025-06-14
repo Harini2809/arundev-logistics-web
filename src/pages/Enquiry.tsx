@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { sendEmail } from "@/utils/emailService";
 import { Mail, Phone, Truck } from "lucide-react";
@@ -15,23 +16,34 @@ const Enquiry = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
-    phone: "",
     company: "",
-    serviceType: "",
+    companyLocation: "",
+    phone: "",
+    email: "",
+    serviceType: [] as string[],
     fromLocation: "",
     toLocation: "",
-    cargoType: "",
+    cargo: "",
     weight: "",
     dimensions: "",
     preferredDate: "",
+    vehicleType: "",
     message: ""
   });
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field: string, value: string | string[]) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
+    }));
+  };
+
+  const handleServiceTypeChange = (service: string, checked: boolean) => {
+    setFormData(prev => ({
+      ...prev,
+      serviceType: checked 
+        ? [...prev.serviceType, service]
+        : prev.serviceType.filter(s => s !== service)
     }));
   };
 
@@ -45,16 +57,18 @@ const Enquiry = () => {
       // Reset form
       setFormData({
         name: "",
-        email: "",
-        phone: "",
         company: "",
-        serviceType: "",
+        companyLocation: "",
+        phone: "",
+        email: "",
+        serviceType: [],
         fromLocation: "",
         toLocation: "",
-        cargoType: "",
+        cargo: "",
         weight: "",
         dimensions: "",
         preferredDate: "",
+        vehicleType: "",
         message: ""
       });
     }
@@ -68,9 +82,6 @@ const Enquiry = () => {
       <section className="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Get Your Quote</h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Tell us about your transportation needs and we'll provide a customized solution
-          </p>
         </div>
       </section>
 
@@ -103,7 +114,7 @@ const Enquiry = () => {
                 </div>
 
                 <div className="bg-blue-50 p-4 rounded-lg">
-                  <h4 className="font-medium text-blue-900 mb-2">Why Choose Us?</h4>
+                  <h4 className="font-medium text-blue-900 mb-2">Our Promises</h4>
                   <ul className="text-sm text-blue-800 space-y-1">
                     <li>• On-time delivery rate</li>
                     <li>• Comprehensive insurance coverage</li>
@@ -138,19 +149,28 @@ const Enquiry = () => {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="email">Email Address *</Label>
+                      <Label htmlFor="company">Company Name *</Label>
                       <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange("email", e.target.value)}
+                        id="company"
+                        value={formData.company}
+                        onChange={(e) => handleInputChange("company", e.target.value)}
                         required
-                        placeholder="Enter your email"
+                        placeholder="Enter company name"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="companyLocation">Company Location *</Label>
+                      <Input
+                        id="companyLocation"
+                        value={formData.companyLocation}
+                        onChange={(e) => handleInputChange("companyLocation", e.target.value)}
+                        required
+                        placeholder="Enter company location"
+                      />
+                    </div>
                     <div>
                       <Label htmlFor="phone">Phone Number *</Label>
                       <Input
@@ -161,32 +181,35 @@ const Enquiry = () => {
                         placeholder="Enter your phone number"
                       />
                     </div>
-                    <div>
-                      <Label htmlFor="company">Company Name</Label>
-                      <Input
-                        id="company"
-                        value={formData.company}
-                        onChange={(e) => handleInputChange("company", e.target.value)}
-                        placeholder="Enter company name (optional)"
-                      />
-                    </div>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="email">Email ID *</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => handleInputChange("email", e.target.value)}
+                      required
+                      placeholder="Enter your email"
+                    />
                   </div>
 
                   {/* Service Details */}
                   <div>
-                    <Label htmlFor="serviceType">Service Type *</Label>
-                    <Select onValueChange={(value) => handleInputChange("serviceType", value)}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select service type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="road-transport">Road Transportation</SelectItem>
-                        <SelectItem value="express-delivery">Express Delivery</SelectItem>
-                        <SelectItem value="warehousing">Warehousing Solutions</SelectItem>
-                        <SelectItem value="freight-forwarding">Freight Forwarding</SelectItem>
-                        <SelectItem value="custom">Custom Solution</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <Label className="text-base font-medium">Service Preferred *</Label>
+                    <div className="grid grid-cols-2 gap-4 mt-2">
+                      {["ADL Trucking", "Chennai Express", "Smart Storage", "ADL Packers & Movers"].map((service) => (
+                        <div key={service} className="flex items-center space-x-2">
+                          <Checkbox
+                            id={service}
+                            checked={formData.serviceType.includes(service)}
+                            onCheckedChange={(checked) => handleServiceTypeChange(service, !!checked)}
+                          />
+                          <Label htmlFor={service} className="text-sm">{service}</Label>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -215,23 +238,17 @@ const Enquiry = () => {
                   {/* Cargo Details */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
-                      <Label htmlFor="cargoType">Cargo Type</Label>
-                      <Select onValueChange={(value) => handleInputChange("cargoType", value)}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select cargo type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="general">General Cargo</SelectItem>
-                          <SelectItem value="fragile">Fragile Items</SelectItem>
-                          <SelectItem value="hazardous">Hazardous Materials</SelectItem>
-                          <SelectItem value="perishable">Perishable Goods</SelectItem>
-                          <SelectItem value="valuable">Valuable Items</SelectItem>
-                          <SelectItem value="bulk">Bulk Materials</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <Label htmlFor="cargo">Cargo</Label>
+                      <Textarea
+                        id="cargo"
+                        value={formData.cargo}
+                        onChange={(e) => handleInputChange("cargo", e.target.value)}
+                        placeholder="Describe your cargo"
+                        rows={2}
+                      />
                     </div>
                     <div>
-                      <Label htmlFor="weight">Approximate Weight</Label>
+                      <Label htmlFor="weight">Actual Weight of Cargo</Label>
                       <Input
                         id="weight"
                         value={formData.weight}
@@ -250,14 +267,36 @@ const Enquiry = () => {
                     </div>
                   </div>
 
-                  <div>
-                    <Label htmlFor="preferredDate">Preferred Pickup Date</Label>
-                    <Input
-                      id="preferredDate"
-                      type="date"
-                      value={formData.preferredDate}
-                      onChange={(e) => handleInputChange("preferredDate", e.target.value)}
-                    />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="preferredDate">Preferred Pickup Date</Label>
+                      <Input
+                        id="preferredDate"
+                        type="date"
+                        value={formData.preferredDate}
+                        onChange={(e) => handleInputChange("preferredDate", e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="vehicleType">Preferred Vehicle Type</Label>
+                      <Select onValueChange={(value) => handleInputChange("vehicleType", value)}>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select vehicle type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="tata-ace">Tata Ace</SelectItem>
+                          <SelectItem value="dhosth">Dhosth</SelectItem>
+                          <SelectItem value="407">407</SelectItem>
+                          <SelectItem value="14-feet">14 feet</SelectItem>
+                          <SelectItem value="17-feet">17 feet</SelectItem>
+                          <SelectItem value="20-feet">20 feet</SelectItem>
+                          <SelectItem value="22-feet">22 feet</SelectItem>
+                          <SelectItem value="24-feet">24 feet</SelectItem>
+                          <SelectItem value="32-feet-sxl">32 feet SXL</SelectItem>
+                          <SelectItem value="32-feet-mxl">32 feet MXL</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
                   </div>
 
                   <div>

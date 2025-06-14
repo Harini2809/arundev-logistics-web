@@ -1,22 +1,79 @@
 
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import { sendEmail } from "@/utils/emailService";
+import { toast } from "sonner";
 
 const Contact = () => {
-  const handleVendorSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Vendor form submitted");
+  const [isVendorSubmitting, setIsVendorSubmitting] = useState(false);
+  const [isCareerSubmitting, setIsCareerSubmitting] = useState(false);
+  const [vendorFormData, setVendorFormData] = useState({
+    companyName: "",
+    contactPerson: "",
+    phoneNumber: "",
+    location: "",
+    type: ""
+  });
+  const [careerFormData, setCareerFormData] = useState({
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    position: "",
+    experience: ""
+  });
+
+  const handleVendorInputChange = (field: string, value: string) => {
+    setVendorFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleCareerSubmit = (e: React.FormEvent) => {
+  const handleCareerInputChange = (field: string, value: string) => {
+    setCareerFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleVendorSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Career form submitted");
+    setIsVendorSubmitting(true);
+    
+    const success = await sendEmail(vendorFormData, 'Become our Vendor');
+    
+    if (success) {
+      setVendorFormData({
+        companyName: "",
+        contactPerson: "",
+        phoneNumber: "",
+        location: "",
+        type: ""
+      });
+    }
+    
+    setIsVendorSubmitting(false);
+  };
+
+  const handleCareerSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsCareerSubmitting(true);
+    
+    const success = await sendEmail(careerFormData, 'Join Us');
+    
+    if (success) {
+      setCareerFormData({
+        fullName: "",
+        email: "",
+        phoneNumber: "",
+        position: "",
+        experience: ""
+      });
+    }
+    
+    setIsCareerSubmitting(false);
   };
 
   return (
@@ -86,26 +143,62 @@ const Contact = () => {
                 </DialogHeader>
                 <form onSubmit={handleVendorSubmit} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="vendorName">Company Name *</Label>
-                    <Input id="vendorName" placeholder="Enter company name" required />
+                    <Label htmlFor="companyName">Company Name *</Label>
+                    <Input 
+                      id="companyName" 
+                      value={vendorFormData.companyName}
+                      onChange={(e) => handleVendorInputChange("companyName", e.target.value)}
+                      placeholder="Enter company name" 
+                      required 
+                    />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="vendorContact">Contact Person *</Label>
-                    <Input id="vendorContact" placeholder="Enter contact person name" required />
+                    <Label htmlFor="contactPerson">Contact Person *</Label>
+                    <Input 
+                      id="contactPerson" 
+                      value={vendorFormData.contactPerson}
+                      onChange={(e) => handleVendorInputChange("contactPerson", e.target.value)}
+                      placeholder="Enter contact person name" 
+                      required 
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="vendorPhone">Phone Number *</Label>
-                    <Input id="vendorPhone" type="tel" placeholder="Enter phone number" required />
+                    <Input 
+                      id="vendorPhone" 
+                      type="tel" 
+                      value={vendorFormData.phoneNumber}
+                      onChange={(e) => handleVendorInputChange("phoneNumber", e.target.value)}
+                      placeholder="Enter phone number" 
+                      required 
+                    />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="vendorEmail">Email Address *</Label>
-                    <Input id="vendorEmail" type="email" placeholder="Enter email address" required />
+                    <Label htmlFor="location">Location *</Label>
+                    <Input 
+                      id="location" 
+                      value={vendorFormData.location}
+                      onChange={(e) => handleVendorInputChange("location", e.target.value)}
+                      placeholder="Enter location" 
+                      required 
+                    />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="vendorServices">Services Offered</Label>
-                    <Textarea id="vendorServices" placeholder="Describe your services" />
+                    <Label htmlFor="type">Type *</Label>
+                    <Select onValueChange={(value) => handleVendorInputChange("type", value)} required>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="truck-owner">Truck Owner</SelectItem>
+                        <SelectItem value="transporter">Transporter</SelectItem>
+                        <SelectItem value="others">Others</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
-                  <Button type="submit" className="w-full">Submit Application</Button>
+                  <Button type="submit" className="w-full" disabled={isVendorSubmitting}>
+                    {isVendorSubmitting ? 'Submitting...' : 'Submit Application'}
+                  </Button>
                 </form>
               </DialogContent>
             </Dialog>
@@ -128,26 +221,61 @@ const Contact = () => {
                 </DialogHeader>
                 <form onSubmit={handleCareerSubmit} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="careerName">Full Name *</Label>
-                    <Input id="careerName" placeholder="Enter your full name" required />
+                    <Label htmlFor="fullName">Full Name *</Label>
+                    <Input 
+                      id="fullName" 
+                      value={careerFormData.fullName}
+                      onChange={(e) => handleCareerInputChange("fullName", e.target.value)}
+                      placeholder="Enter your full name" 
+                      required 
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="careerEmail">Email Address *</Label>
-                    <Input id="careerEmail" type="email" placeholder="Enter email address" required />
+                    <Input 
+                      id="careerEmail" 
+                      type="email" 
+                      value={careerFormData.email}
+                      onChange={(e) => handleCareerInputChange("email", e.target.value)}
+                      placeholder="Enter email address" 
+                      required 
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="careerPhone">Phone Number *</Label>
-                    <Input id="careerPhone" type="tel" placeholder="Enter phone number" required />
+                    <Input 
+                      id="careerPhone" 
+                      type="tel" 
+                      value={careerFormData.phoneNumber}
+                      onChange={(e) => handleCareerInputChange("phoneNumber", e.target.value)}
+                      placeholder="Enter phone number" 
+                      required 
+                    />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="careerPosition">Position of Interest</Label>
-                    <Input id="careerPosition" placeholder="e.g., Driver, Operations, Sales" />
+                    <Label htmlFor="position">Position of Interest</Label>
+                    <Input 
+                      id="position" 
+                      value={careerFormData.position}
+                      onChange={(e) => handleCareerInputChange("position", e.target.value)}
+                      placeholder="e.g., Driver, Operations, Sales" 
+                    />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="careerExperience">Experience</Label>
-                    <Textarea id="careerExperience" placeholder="Tell us about your relevant experience" />
+                    <Label htmlFor="experience">Experience</Label>
+                    <Textarea 
+                      id="experience" 
+                      value={careerFormData.experience}
+                      onChange={(e) => handleCareerInputChange("experience", e.target.value)}
+                      placeholder="Tell us about your relevant experience" 
+                    />
                   </div>
-                  <Button type="submit" className="w-full">Submit Application</Button>
+                  <div className="text-sm text-gray-600 bg-blue-50 p-3 rounded">
+                    Send your updated CV to sales@arundevlogistics.com
+                  </div>
+                  <Button type="submit" className="w-full" disabled={isCareerSubmitting}>
+                    {isCareerSubmitting ? 'Submitting...' : 'Submit Application'}
+                  </Button>
                 </form>
               </DialogContent>
             </Dialog>
