@@ -1,16 +1,50 @@
 
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Package, Search } from "lucide-react";
+import { sendEmail } from "@/utils/emailService";
 
 const Track = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    trackingNumber: "",
+    customerName: "",
+    phoneNumber: "",
+    email: "",
+    orderDate: "",
+    additionalInfo: ""
+  });
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Track package form submitted");
+    setIsSubmitting(true);
+    
+    const success = await sendEmail(formData, 'Track Package');
+    
+    if (success) {
+      // Reset form
+      setFormData({
+        trackingNumber: "",
+        customerName: "",
+        phoneNumber: "",
+        email: "",
+        orderDate: "",
+        additionalInfo: ""
+      });
+    }
+    
+    setIsSubmitting(false);
   };
 
   return (
@@ -44,6 +78,8 @@ const Track = () => {
                     <Input
                       id="trackingNumber"
                       name="trackingNumber"
+                      value={formData.trackingNumber}
+                      onChange={(e) => handleInputChange("trackingNumber", e.target.value)}
                       placeholder="Enter your tracking number"
                       required
                     />
@@ -53,6 +89,8 @@ const Track = () => {
                     <Input
                       id="customerName"
                       name="customerName"
+                      value={formData.customerName}
+                      onChange={(e) => handleInputChange("customerName", e.target.value)}
                       placeholder="Enter your full name"
                       required
                     />
@@ -66,6 +104,8 @@ const Track = () => {
                       id="phoneNumber"
                       name="phoneNumber"
                       type="tel"
+                      value={formData.phoneNumber}
+                      onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
                       placeholder="Enter your phone number"
                       required
                     />
@@ -76,6 +116,8 @@ const Track = () => {
                       id="email"
                       name="email"
                       type="email"
+                      value={formData.email}
+                      onChange={(e) => handleInputChange("email", e.target.value)}
                       placeholder="Enter your email address"
                     />
                   </div>
@@ -87,6 +129,8 @@ const Track = () => {
                     id="orderDate"
                     name="orderDate"
                     type="date"
+                    value={formData.orderDate}
+                    onChange={(e) => handleInputChange("orderDate", e.target.value)}
                   />
                 </div>
 
@@ -95,14 +139,20 @@ const Track = () => {
                   <Textarea
                     id="additionalInfo"
                     name="additionalInfo"
+                    value={formData.additionalInfo}
+                    onChange={(e) => handleInputChange("additionalInfo", e.target.value)}
                     placeholder="Any additional details that might help us locate your package"
                     rows={3}
                   />
                 </div>
 
-                <Button type="submit" className="w-full bg-blue-700 hover:bg-blue-800 text-white">
+                <Button 
+                  type="submit" 
+                  className="w-full bg-blue-700 hover:bg-blue-800 text-white"
+                  disabled={isSubmitting}
+                >
                   <Search className="mr-2 h-4 w-4" />
-                  Track Package
+                  {isSubmitting ? 'Submitting...' : 'Track Package'}
                 </Button>
               </form>
             </CardContent>

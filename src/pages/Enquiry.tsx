@@ -7,10 +7,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { sendEmail } from "@/utils/emailService";
 import { Mail, Phone, Truck } from "lucide-react";
 
 const Enquiry = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -33,30 +35,31 @@ const Enquiry = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
     
-    toast({
-      title: "Enquiry Submitted Successfully!",
-      description: "We'll get back to you within 24 hours with a detailed quote.",
-    });
-
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      serviceType: "",
-      fromLocation: "",
-      toLocation: "",
-      cargoType: "",
-      weight: "",
-      dimensions: "",
-      preferredDate: "",
-      message: ""
-    });
+    const success = await sendEmail(formData, 'Get Quote');
+    
+    if (success) {
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        serviceType: "",
+        fromLocation: "",
+        toLocation: "",
+        cargoType: "",
+        weight: "",
+        dimensions: "",
+        preferredDate: "",
+        message: ""
+      });
+    }
+    
+    setIsSubmitting(false);
   };
 
   return (
@@ -102,7 +105,7 @@ const Enquiry = () => {
                 <div className="bg-blue-50 p-4 rounded-lg">
                   <h4 className="font-medium text-blue-900 mb-2">Why Choose Us?</h4>
                   <ul className="text-sm text-blue-800 space-y-1">
-                    <li>• 99.5% On-time delivery rate</li>
+                    <li>• On-time delivery rate</li>
                     <li>• Comprehensive insurance coverage</li>
                     <li>• Real-time tracking</li>
                     <li>• 24/7 customer support</li>
@@ -268,8 +271,13 @@ const Enquiry = () => {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full bg-blue-700 hover:bg-blue-800">
-                    Submit Enquiry
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full bg-blue-700 hover:bg-blue-800"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
                   </Button>
                 </form>
               </CardContent>

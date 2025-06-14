@@ -1,6 +1,8 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Users, Target, Eye, Heart } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { Users, Target, Eye, Heart, ArrowRight, Bullseye, Lightbulb } from "lucide-react";
 
 const About = () => {
   const values = [
@@ -55,9 +57,30 @@ const About = () => {
               <img 
                 src="/lovable-uploads/28510f6a-4699-476c-a538-40a7a953b084.png" 
                 alt="Arundev Logistics Warehouse" 
-                className="h-96 w-auto object-contain rounded-lg"
+                className="h-[450px] w-auto object-contain rounded-lg"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Strip */}
+      <section className="bg-blue-700 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h3 className="text-2xl font-bold text-white mb-6">
+            Ready to transform your logistics experience with us?
+          </h3>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
+              <Link to="/enquiry">
+                Get Custom Quote <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
+              <Link to="/track">
+                Track Package <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -68,7 +91,10 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card className="h-full">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
+                <div className="flex items-center mb-4">
+                  <Bullseye className="h-8 w-8 text-blue-700 mr-3" />
+                  <h3 className="text-2xl font-bold text-gray-900">Our Mission</h3>
+                </div>
                 <p className="text-gray-600 text-lg">
                   To revolutionize logistics by offering seamless, reliable, and cost effective transportation solutions that empower businesses and individuals alike.
                 </p>
@@ -76,7 +102,10 @@ const About = () => {
             </Card>
             <Card className="h-full">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
+                <div className="flex items-center mb-4">
+                  <Lightbulb className="h-8 w-8 text-blue-700 mr-3" />
+                  <h3 className="text-2xl font-bold text-gray-900">Our Vision</h3>
+                </div>
                 <p className="text-gray-600 text-lg">
                   To be a trusted leader in the logistics industry, known for innovation, efficiency, and a customer-first approach.
                 </p>

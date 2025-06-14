@@ -30,41 +30,29 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-blue-700 text-white py-16 mt-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div className="flex justify-center lg:justify-start">
-              <img 
-                src="/lovable-uploads/941a8acf-d27d-4157-84c0-8b840dc0455c.png" 
-                alt="Thiruvalluvar" 
-                className="h-80 w-auto object-contain"
-              />
-            </div>
-            <div className="pr-8">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Your Trusted <span className="text-orange-400">Logistics</span> Partner
-              </h1>
-              <p className="text-xl mb-8 text-blue-100">
-                Delivering excellence in transportation and logistics solutions across India. 
-                Safe, reliable, and on-time delivery guaranteed.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
-                  <Link to="/enquiry">
-                    Get Quote <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="border-white text-white bg-white/10 hover:bg-white hover:text-blue-700">
-                  <Link to="/about">Learn More</Link>
-                </Button>
-                <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
-                  <Link to="/track">
-                    Track Package <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
+      {/* Hero Section with Background Image */}
+      <section 
+        className="relative bg-cover bg-center bg-no-repeat py-16 mt-4 min-h-[500px] flex items-center"
+        style={{
+          backgroundImage: `url('/lovable-uploads/59dd22ff-cc5b-47bf-982d-be22f5550805.png')`
+        }}
+      >
+        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-center">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
+              <Link to="/enquiry">
+                Get Quote <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="border-white text-white bg-white/10 hover:bg-white hover:text-blue-700">
+              <Link to="/about">Learn More</Link>
+            </Button>
+            <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
+              <Link to="/track">
+                Track Package <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
