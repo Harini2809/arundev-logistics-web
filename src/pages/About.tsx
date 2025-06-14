@@ -1,8 +1,7 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Users, Target, Eye, Heart, ArrowRight, Bullseye, Lightbulb } from "lucide-react";
+import { Users, Target, Eye, Heart, ArrowRight, Lightbulb } from "lucide-react";
 
 const About = () => {
   const values = [
@@ -92,7 +91,7 @@ const About = () => {
             <Card className="h-full">
               <CardContent className="p-8">
                 <div className="flex items-center mb-4">
-                  <Bullseye className="h-8 w-8 text-blue-700 mr-3" />
+                  <Target className="h-8 w-8 text-blue-700 mr-3" />
                   <h3 className="text-2xl font-bold text-gray-900">Our Mission</h3>
                 </div>
                 <p className="text-gray-600 text-lg">
