@@ -11,7 +11,7 @@ export const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-4 mb-4">
               <img 
-                src="/lovable-uploads/7bb6529b-da9c-4ad2-91d8-7fba9d87ad83.png" 
+                src={`${import.meta.env.BASE_URL}lovable-uploads/7bb6529b-da9c-4ad2-91d8-7fba9d87ad83.png`} 
                 alt="Arundev Logistics Logo" 
                 className="h-24 w-auto"
               />
