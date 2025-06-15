@@ -55,7 +55,7 @@ const About = () => {
             </div>
             <div className="flex justify-center">
               <img 
-                src="/lovable-uploads/28510f6a-4699-476c-a538-40a7a953b084.png" 
+                src={`${import.meta.env.BASE_URL}lovable-uploads/28510f6a-4699-476c-a538-40a7a953b084.png`} 
                 alt="Arundev Logistics Warehouse" 
                 className="h-[500px] w-auto object-contain rounded-lg"
               />

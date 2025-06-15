@@ -7,25 +7,25 @@ import { ArrowRight } from "lucide-react";
 const Products = () => {
   const services = [
     {
-      icon: <img src="/lovable-uploads/7bb6529b-da9c-4ad2-91d8-7fba9d87ad83.png" alt="ADL Trucking" className="h-16 w-16 object-contain" />,
+      icon: <img src={`${import.meta.env.BASE_URL}lovable-uploads/7bb6529b-da9c-4ad2-91d8-7fba9d87ad83.png`} alt="ADL Trucking" className="h-16 w-16 object-contain" />,
       title: "ADL Trucking",
       description: "ADL Trucking is our dedicated Full Truck Load solution designed for businesses that demand punctuality, visibility, and control. Whether it's a single shipment or a recurring route, we ensure on-time vehicle placement, live tracking, and zero guesswork. Our centralized Control Tower Team monitors every move, proactively managing routes, schedules, and exceptions to keep your cargo on track.",
       features: ["Full Truck Load (FTL)", "Live Tracking", "Control Tower Management", "On-time Vehicle Placement"]
     },
     {
-      icon: <img src="/lovable-uploads/7bb6529b-da9c-4ad2-91d8-7fba9d87ad83.png" alt="Chennai Express" className="h-16 w-16 object-contain" />,
+      icon: <img src={`${import.meta.env.BASE_URL}lovable-uploads/7bb6529b-da9c-4ad2-91d8-7fba9d87ad83.png`} alt="Chennai Express" className="h-16 w-16 object-contain" />,
       title: "Chennai Express",
       description: "Say goodbye to overpaying for partial truck loads. Chennai Express is our new-age, no-nonsense solution for first mile and last mile partial truckload and small package movement within the city, you pay only for the space you use, not for the whole truck. No surge pricing. No shady charges. No waiting-time traps. Just simple, city-smart logistics. Built for businesses of all size and Individuals, Chennai Express offers same day and next day delivery.",
       features: ["Same Day Delivery", "Next Day Delivery", "Pay as u Use", "No Surge Pricing"]
     },
     {
-      icon: <img src="/lovable-uploads/7bb6529b-da9c-4ad2-91d8-7fba9d87ad83.png" alt="Smart Storage" className="h-16 w-16 object-contain" />,
+      icon: <img src={`${import.meta.env.BASE_URL}lovable-uploads/7bb6529b-da9c-4ad2-91d8-7fba9d87ad83.png`} alt="Smart Storage" className="h-16 w-16 object-contain" />,
       title: "Smart Storage",
       description: "Introducing Smart Storage, a first-of-its-kind in-transit storage solution in Chennai. Designed for businesses and individuals who need flexible, short-term storage, we offer secure space on a per-day pricing model, without locking you into long-term commitments. What makes it smarter? It's seamlessly bundled with our specialised transportation services, giving you a fully integrated move–store–move experience. Whether you're between drop-offs, managing overflow, or pausing a delivery, we've got your back. No complicated contracts. No hidden costs. Just custom-fit storage, when and where you need it, at a price that makes sense.",
       features: ["Per-day Pricing", "No Long-term Commitment", "Integrated Transportation", "Secure Storage"]
     },
     {
-      icon: <img src="/lovable-uploads/7bb6529b-da9c-4ad2-91d8-7fba9d87ad83.png" alt="ADL Packers & Movers" className="h-16 w-16 object-contain" />,
+      icon: <img src={`${import.meta.env.BASE_URL}lovable-uploads/7bb6529b-da9c-4ad2-91d8-7fba9d87ad83.png`} alt="ADL Packers & Movers" className="h-16 w-16 object-contain" />,
       title: "ADL Packers & Movers",
       description: "ADL Packers & Movers isn't your average relocation service, it's a carefully crafted solution for businesses and individuals who value clarity, care, and commitment. We provide precise solutions and transparent offers. NO vague promises, NO hidden costs, NO last-minute surprises. From packing to unloading, we focus on the safety and security of your inventory, treating every item like it's our own. Our goal ? A smooth transition that helps you settle into your new space with ease, minus the stress and the \"fake promises\"",
       features: ["Transparent Pricing", "No Hidden Costs", "Safe & Secure", "Professional Packing"]

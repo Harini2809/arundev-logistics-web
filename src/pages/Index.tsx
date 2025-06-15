@@ -29,7 +29,7 @@ const Index = () => {
       <section 
         className="relative bg-cover bg-center bg-no-repeat min-h-[400px] flex items-end"
         style={{
-          backgroundImage: `url('/lovable-uploads/59dd22ff-cc5b-47bf-982d-be22f5550805.png')`
+          backgroundImage: `url('${import.meta.env.BASE_URL}lovable-uploads/59dd22ff-cc5b-47bf-982d-be22f5550805.png')`
         }}
       >
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-end pb-4 pr-8">
