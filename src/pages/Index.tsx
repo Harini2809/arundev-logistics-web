@@ -26,36 +26,23 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Background Image */}
-      <section
-        className="relative bg-cover sm:bg-contain bg-center sm:bg-top bg-no-repeat min-h-[400px] sm:min-h-[300px] flex items-end sm:items-center"
+      <section 
+        className="relative bg-cover bg-center bg-no-repeat min-h-[400px] flex items-end"
         style={{
-          backgroundImage: `url('${import.meta.env.BASE_URL}lovable-uploads/59dd22ff-cc5b-47bf-982d-be22f5550805.png')`
+          backgroundImage: url('${import.meta.env.BASE_URL}lovable-uploads/59dd22ff-cc5b-47bf-982d-be22f5550805.png')
         }}
       >
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-end sm:justify-center pb-4 pr-4 sm:pb-8 sm:pr-0">
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-orange-500 hover:bg-orange-600 text-white"
-            >
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-end pb-4 pr-8">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
               <Link to="/enquiry">
                 Get Quote <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-white text-white bg-white/10 hover:bg-white hover:text-blue-700"
-            >
+            <Button asChild variant="outline" size="lg" className="border-white text-white bg-white/10 hover:bg-white hover:text-blue-700">
               <Link to="/about">Learn More</Link>
             </Button>
-            <Button
-              asChild
-              size="lg"
-              className="bg-orange-500 hover:bg-orange-600 text-white"
-            >
+            <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
               <Link to="/track">
                 Track Package <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -63,7 +50,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
 
       {/* Features Section */}
       <section className="py-20 bg-gray-50">
