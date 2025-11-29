@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import { Clock, Zap, ArrowRight, IndianRupee } from "lucide-react";
 
 const Index = () => {
+  // Get the base URL for assets
+  const baseUrl = import.meta.env.BASE_URL;
+  
   const features = [
     {
       icon: <Clock className="h-12 w-12 text-orange-500" />,
@@ -25,15 +28,62 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section with Background Image */}
+      {/* Hero Section with Background Image and Thiruvalluvar Quote */}
       <section 
-        className="relative bg-cover bg-center bg-no-repeat min-h-[400px] flex items-end"
+        className="relative bg-cover bg-center bg-no-repeat min-h-[350px] sm:min-h-[400px] md:min-h-[450px] lg:min-h-[500px]"
         style={{
-          backgroundImage: `url('${import.meta.env.BASE_URL}lovable-uploads/59dd22ff-cc5b-47bf-982d-be22f5550805.png')`
+          backgroundImage: `url('${baseUrl}images/background.png')`
         }}
       >
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-end pb-4 pr-8">
-          <div className="flex flex-col sm:flex-row gap-4">
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-blue-900/40"></div>
+        
+        {/* Content Container */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-[350px] sm:min-h-[400px] md:min-h-[450px] lg:min-h-[500px] flex flex-col justify-between py-6">
+          
+          {/* Main Content - Thiruvalluvar and Quote */}
+          <div className="flex flex-col lg:flex-row items-center lg:items-center gap-4 lg:gap-[21px] flex-grow">
+            
+            {/* Thiruvalluvar Image */}
+            <div className="flex-shrink-0 w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64">
+              <img 
+                src={`${baseUrl}images/person.png`}
+                alt="Thiruvalluvar"
+                className="w-full h-auto object-contain drop-shadow-2xl"
+              />
+            </div>
+            
+            {/* Quote Section */}
+            <div className="flex-grow text-center lg:text-left pt-2">
+              {/* Kural Number */}
+              <p className="text-white/80 text-sm sm:text-base md:text-lg font-medium mb-2">
+                குறள் 754 :
+              </p>
+              
+              {/* Tamil Text */}
+              <div className="mb-3 sm:mb-4">
+                <p className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-relaxed" style={{ fontFamily: "'Noto Sans Tamil', 'Latha', sans-serif" }}>
+                  அறன்ஈனும் <span className="text-orange-500 font-bold">இன்பமும்</span> ஈனும் திறனறிந்து
+                </p>
+                <p className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-relaxed" style={{ fontFamily: "'Noto Sans Tamil', 'Latha', sans-serif" }}>
+                  <span className="text-orange-500 font-bold">தீதின்றி</span> வந்த பொருள்.
+                </p>
+              </div>
+              
+              {/* English Translation */}
+              <div className="mt-4 sm:mt-6">
+                <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold leading-relaxed">
+                  Profit attained <span className="text-orange-500">ethically</span> and responsibly
+                </p>
+                <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold leading-relaxed">
+                  brings both <span className="text-orange-500">righteousness</span> and <span className="text-orange-500">happiness</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Buttons at the bottom */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-6 lg:mt-0">
             <Button asChild size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
               <Link to="/enquiry">
                 Get Quote <ArrowRight className="ml-2 h-4 w-4" />

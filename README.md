@@ -1,73 +1,30 @@
-# Welcome to Arundev Logistics Website Project
+## arundev-logistics-web
 
-## Project info
+### Prerequisites
 
-**URL**: https://lovable.dev/projects/16862e49-ed3a-4b71-b519-8fd182ef44a5
+- Node.js
+- pnpm installed globally
 
-## How can I edit this code?
+or
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/16862e49-ed3a-4b71-b519-8fd182ef44a5) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+npm install -g pnpm
 ```
 
-**Edit a file directly in GitHub**
+### Install deps
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+From the project root:
 
-**Use GitHub Codespaces**
+```bash
+pnpm install
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Run the dev server
 
-## What technologies are used for this project?
+```bash
+pnpm run dev
+```
 
-This project is built with:
+http://localhost:5173 Open it in your browser.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/16862e49-ed3a-4b71-b519-8fd182ef44a5) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+> push to main branch to deploy the changes to production site https://arundevlogistics.com/
