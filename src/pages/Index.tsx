@@ -62,7 +62,7 @@ const Index = () => {
               
               {/* Tamil Text */}
               <div className="mb-3 sm:mb-4">
-                <p className="text-white text-[0.98rem] sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-relaxed" style={{ fontFamily: "'Noto Sans Tamil', 'Latha', sans-serif" }}>
+                <p className="text-white text-[4vw] sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-relaxed" style={{ fontFamily: "'Noto Sans Tamil', 'Latha', sans-serif" }}>
                   அறன்ஈனும் <span className="text-orange-500 font-bold">இன்பமும்</span> ஈனும் திறனறிந்து
                 </p>
                 <p className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-relaxed" style={{ fontFamily: "'Noto Sans Tamil', 'Latha', sans-serif" }}>
@@ -72,10 +72,10 @@ const Index = () => {
               
               {/* English Translation */}
               <div className="mt-4 sm:mt-6">
-                <p className="text-white text-[0.98rem] sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold leading-relaxed">
+                <p className="text-white text-[4vw] sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold leading-relaxed">
                   Profit attained <span className="text-orange-500">ethically</span> and responsibly
                 </p>
-                <p className="text-white text-[0.98rem] sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold leading-relaxed">
+                <p className="text-white text-[4vw] sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold leading-relaxed">
                   brings both <span className="text-orange-500">righteousness</span> and <span className="text-orange-500">happiness</span>
                 </p>
               </div>
