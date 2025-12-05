@@ -54,18 +54,24 @@ const Index = () => {
             </div>
             
             {/* Quote Section */}
-            <div className="flex-grow text-center lg:text-left pt-2">
+            <div className="flex-grow text-center lg:text-left pt-2 leading-10">
               {/* Kural Number */}
               <p className="text-white/80 text-sm sm:text-base md:text-lg font-medium mb-2">
                 குறள் 754 :
               </p>
               
               {/* Tamil Text */}
-              <div className="mb-3 sm:mb-4">
-                <p className="text-white text-[4vw] sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-relaxed" style={{ fontFamily: "'Noto Sans Tamil', 'Latha', sans-serif" }}>
+              <div className="mb-3 sm:mb-4 leading-10">
+                <p 
+                  className="text-white text-[4vw] sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-relaxed lg:leading-[2rem] xl:leading-[2rem]" 
+                  style={{ fontFamily: "'Noto Sans Tamil', 'Latha', sans-serif" }}
+                >
                   அறன்ஈனும் <span className="text-orange-500 font-bold">இன்பமும்</span> ஈனும் திறனறிந்து
                 </p>
-                <p className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-relaxed" style={{ fontFamily: "'Noto Sans Tamil', 'Latha', sans-serif" }}>
+                <p 
+                  className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium leading-relaxed lg:leading-[3rem] xl:leading-[4rem]" 
+                  style={{ fontFamily: "'Noto Sans Tamil', 'Latha', sans-serif" }}
+                >
                   <span className="text-orange-500 font-bold">தீதின்றி</span> வந்த பொருள்.
                 </p>
               </div>
