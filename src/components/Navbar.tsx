@@ -30,14 +30,6 @@ export const Navbar = () => {
               alt="Arundev Logistics Logo" 
               className="h-20 w-auto"
             />
-            <div className="flex flex-col">
-              <span className="text-3xl font-bold text-blue-700">
-                Arundev Logistics
-              </span>
-              <div className="text-xs text-gray-600 italic">
-                <div>Where logistics meets Innovation-Made simple for You</div>
-              </div>
-            </div>
           </Link>
 
           {/* Desktop Navigation */}
