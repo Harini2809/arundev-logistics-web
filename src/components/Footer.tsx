@@ -15,15 +15,6 @@ export const Footer = () => {
                 alt="Arundev Logistics Logo" 
                 className="h-24 w-auto"
               />
-              <div className="flex flex-col">
-                <span className="text-4xl font-bold">
-                  Arundev <span className="text-orange-500">Logistics</span>
-                </span>
-                <div className="text-sm text-gray-400 italic">
-                  <div>Where logistics meets Innovation-</div>
-                  <div>Made simple for You</div>
-                </div>
-              </div>
             </div>
             <p className="text-gray-300 mb-4">
               Your trusted logistics partner providing reliable transportation solutions.
