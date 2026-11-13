@@ -1,0 +1,1 @@
+- Keep new public pages within the existing React Router, shared navigation, and global footer; retain a GitHub Pages 404 fallback for direct SPA links so published routes remain accessible.

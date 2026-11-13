@@ -92,10 +92,16 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
+        <div className="border-t border-gray-800 mt-8 pt-8">
+          <div className="flex flex-col items-center justify-center gap-y-2 text-center sm:flex-row sm:gap-x-4 sm:gap-y-0">
+            <p className="text-gray-400">
             © 2025 Arundev Logistics. All rights reserved.
-          </p>
+            </p>
+            <span aria-hidden="true" className="hidden h-4 border-l border-gray-700 sm:block" />
+            <Link to="/privacy-policy" className="text-orange-400 transition-colors hover:text-orange-300 hover:underline hover:underline-offset-4">
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

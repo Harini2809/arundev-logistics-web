@@ -12,6 +12,7 @@ import Products from "./pages/Products";
 import Contact from "./pages/Contact";
 import Enquiry from "./pages/Enquiry";
 import Track from "./pages/Track";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/enquiry" element={<Enquiry />} />
               <Route path="/track" element={<Track />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
